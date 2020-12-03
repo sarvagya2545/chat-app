@@ -4,7 +4,7 @@
   "description": "This is a chat app I am making in december to study sockets",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app.js"
   },
   "author": "Sarvagya",
   "license": "ISC",
