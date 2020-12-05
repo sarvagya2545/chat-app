@@ -1,4 +1,5 @@
-var socket = io.connect('https://enigmatic-tundra-59197.herokuapp.com/')
+// var socket = io.connect('https://enigmatic-tundra-59197.herokuapp.com/')
+var socket = io.connect('http://localhost:3000/')
 
 const btnSend = document.getElementById('btn-send')
 const chatInput = document.getElementById('chat-input')
