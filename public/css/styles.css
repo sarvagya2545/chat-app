@@ -54,6 +54,8 @@ body {
     padding: 1rem 2rem;
     border-radius: 20px;
     border: 1px solid #c8c8c8;
+    display: flex;
+    flex-direction: column;
 }
 
 .chat-message.others {
@@ -64,5 +66,15 @@ body {
 .chat-message.mine {
     background-color: #8DF7B6;
     border-bottom-right-radius: 0;
+    margin-left: auto;
+}
+
+.chat-message-time {
+    color: #777;
+    font-size: 10px;
+    margin-top: 2px;
+}
+
+.chat-message.mine .chat-message-time {
     margin-left: auto;
 }
