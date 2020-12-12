@@ -1,5 +1,5 @@
-const url = 'http://localhost:3000/';
-// const url = 'https://enigmatic-tundra-59197.herokuapp.com/';
+// const url = 'http://localhost:3000/';
+const url = 'https://enigmatic-tundra-59197.herokuapp.com/';
 
 // Make a connection to the socket from here
 var socket = io.connect(url)
