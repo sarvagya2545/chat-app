@@ -1,0 +1,52 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&family=Roboto&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.0.3/socket.io.js" integrity="sha512-Jr0UIR/Q8MUX+93zjDOhuDUKLqJZObtwpkLJQcR9qMaLgL0thet39IORuavUaZFkZ8a4ktrUsKPM9mf5LWMduA==" crossorigin="anonymous"></script>
+    <title>Chat app</title>
+</head>
+<body>
+    <div class="container">
+        <div class="hero-section">
+            <h1 class="header-main">Chat all you want!</h1>
+            <h2 class="header-secondary">With anybody you want!</h2>
+        </div>
+        <form class="login-container" action="/chat" method="POST">
+            <label for="" class="heading-tertiary">Enter your nick: </label>
+            <input name="nick" type="text" id="input-nick">
+            <label class="heading-tertiary">Enter chat room code: </label>
+            <input name="code" type="text" id="input-code">
+            <button type="submit" class="btn-primary">JOIN</button>
+        </form>
+    </div>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./public/css/styles.css" type="text/css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.0.3/socket.io.js" integrity="sha512-Jr0UIR/Q8MUX+93zjDOhuDUKLqJZObtwpkLJQcR9qMaLgL0thet39IORuavUaZFkZ8a4ktrUsKPM9mf5LWMduA==" crossorigin="anonymous"></script>
+    <title>Chat app</title>
+</head>
+<body>
+    <section id="chat-container">
+        <div id="chat-box">
+            <div class="alert">Sarvagya has left the chat</div>
+        </div>
+        <form id="chat">
+            <input type="text" id="chat-input" placeholder="Type your message..."
+            autocomplete="off"/>
+            <button id="btn-send">
+                <img src="./public/images/send_img.svg" alt="SEND">   
+            </button>
+        </form>
+    </section>
+    <script src="/js/chat.js"></script>
+</body>
+</html>

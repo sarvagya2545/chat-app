@@ -1,0 +1,83 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: sans-serif;
+    background-image: url('../images/bg-login.jpg');
+    background-size: cover;
+}
+
+.container {
+    height: 100vh;
+    display: flex;
+}
+
+.login-container {
+    background-color: #e8e8e8;
+    width: 450px;
+    padding: 5em 2em;
+}
+
+.hero-section {
+    padding: 5em 5.73em;
+    flex: 1;
+}
+
+.header-main, .header-secondary {
+    font-family: "Montserrat", sans-serif;
+}
+
+.heading-tertiary {
+    font-family: 'Roboto', sans-serif;
+}
+
+.header-main {
+    font-family: "Montserrat", sans-serif;
+    color: #fff;
+    font-size: 62px;
+}
+
+.header-secondary {
+    color: #c7c7c7;
+    font-size: 35px;
+}
+
+.heading-tertiary {
+    color: #000;
+    display: inline-block;
+    font-weight: 400;
+    font-size: 20px;
+    margin: 10px 0;
+}
+
+input {
+    width: 100%;
+    border: none;
+    height: 20px;
+    padding: 10px 8px;
+    outline: none;
+}
+
+input:focus {
+    outline: 3px solid #447a7c;
+}
+
+.btn-primary {
+    text-decoration: none;
+    display: inline-block;
+    background-color: #295F61;
+    padding: 1em 2em;
+    color: #fff;
+    border: none;
+    margin-top: 50px;
+    outline: none;
+    transition: all 0.2s ease;
+}
+
+.btn-primary:hover {
+    transform: translateY(-1px);
+    box-shadow: rgba(0, 0, 0, 0.5) 0 5px 10px;
+    cursor: pointer;
+}
