@@ -1,11 +1,19 @@
-// var socket = io.connect('https://enigmatic-tundra-59197.herokuapp.com/')
-var socket = io.connect('http://localhost:3000/')
+// const url = 'http://localhost:3000/';
+const url = 'https://enigmatic-tundra-59197.herokuapp.com/';
+
+// Make a connection to the socket from here
+var socket = io.connect(url)
+
+const params = new URLSearchParams(window.location.search)
+const 
+    nick = params.get('user'),
+    room = params.get('code');
+
+socket.emit('joinRoom', { nick, room })
 
 const btnSend = document.getElementById('btn-send')
 const chatInput = document.getElementById('chat-input')
 const chatBox = document.getElementById('chat-box')
-
-var name = ""
 
 btnSend.addEventListener('click', e => {
     e.preventDefault()
@@ -15,16 +23,36 @@ btnSend.addEventListener('click', e => {
         var chatMsg = {
             message: message,
             date: date,
-            id: socket.id
+            id: socket.id,
+            room
         }
-        socket.emit('message sent', chatMsg)
+        socket.emit('message', chatMsg)
         chatInput.value = ""
     }
 })
 
-socket.on('message sent', chatMsg => {
+socket.on('message', chatMsg => {
     addMessage(chatMsg);
+    // scrolls the chat message box to bottom once any message is recieved
+    chatBox.scrollTop = chatBox.scrollHeight;
 });
+
+socket.on('enter', alert => {
+    addAlert(alert)
+})
+
+socket.on('leave', alert => {
+    addAlert(alert)
+})
+
+const addAlert = (alertMsg) => {
+    console.log(alertMsg);
+    var alert = document.createElement('div')
+    alert.classList.add('alert')
+    alert.innerHTML = alertMsg;
+
+    chatBox.appendChild(alert)
+}
 
 const addMessage = (chatMsg) => {
     var msgBox = document.createElement('div')

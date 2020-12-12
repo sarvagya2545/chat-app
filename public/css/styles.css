@@ -16,8 +16,8 @@ body {
 
 #chat-box {
     position: relative;
-    flex: 1;
-    overflow: scroll;
+    flex-grow: 1;
+    overflow-y: scroll;
 }
 
 #chat {
@@ -77,4 +77,15 @@ body {
 
 .chat-message.mine .chat-message-time {
     margin-left: auto;
+}
+
+.alert { 
+    display: block;
+    width: fit-content;
+    background-color: lightblue;
+    border-radius: 5px;
+    border: 1px solid black;
+    color: #000;
+    padding: .5em 1em;
+    margin: 10px auto;
 }
