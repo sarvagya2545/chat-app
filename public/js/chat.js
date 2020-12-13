@@ -1,8 +1,6 @@
-// const url = 'http://localhost:3000/';
-const url = 'https://enigmatic-tundra-59197.herokuapp.com/';
-
 // Make a connection to the socket from here
-var socket = io.connect(url)
+// window.location.href returns the main part of the url
+var socket = io.connect(window.location.origin)
 
 const params = new URLSearchParams(window.location.search)
 const 
