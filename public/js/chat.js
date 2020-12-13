@@ -22,7 +22,8 @@ btnSend.addEventListener('click', e => {
             message: message,
             date: date,
             id: socket.id,
-            room
+            room,
+            nick
         }
         socket.emit('message', chatMsg)
         chatInput.value = ""
@@ -57,15 +58,22 @@ const addMessage = (chatMsg) => {
     msgBox.classList.add('chat-message')
     if(chatMsg.id == socket.id) {
         msgBox.classList.add('mine')
+        msgBox.innerHTML = 
+        `${chatMsg.message}
+            <span class="chat-message-time">
+                Sent: ${formatAMPM(chatMsg.date)}
+            </span>
+        `
     } else {
         msgBox.classList.add('others')
+        msgBox.innerHTML = 
+        `<span class="msg-owner-name msg-${chatMsg.color}">${chatMsg.nick}</span>
+        ${chatMsg.message}
+            <span class="chat-message-time">
+                Sent: ${formatAMPM(chatMsg.date)}
+            </span>
+        `
     }
-    msgBox.innerHTML = 
-    `${chatMsg.message}
-        <span class="chat-message-time">
-            Sent: ${formatAMPM(chatMsg.date)}
-        </span>
-    `
 
     li = document.createElement('li')
     li.className = 'chat-list-item'

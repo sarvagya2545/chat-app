@@ -89,3 +89,34 @@ body {
     padding: .5em 1em;
     margin: 10px auto;
 }
+
+.msg-owner-name {
+    font-size: 14px;
+    font-weight: bold;
+    color: red;
+}
+
+/* Utility classes */
+.msg-red {
+    color: red;
+}
+
+.msg-grey {
+    color: grey;
+}
+
+.msg-orange {
+    color: orange;
+}
+
+.msg-blue {
+    color: blue;
+}
+
+.msg-brown {
+    color: brown;
+}
+
+.msg-purple {
+    color: purple;
+}

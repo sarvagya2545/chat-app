@@ -6,7 +6,7 @@ var server = app.listen(PORT, () => {
 })
 const io = require('socket.io')(server)
 const {
-    addUser, removeUser
+    addUser, removeUser, getUserNickColor
 } = require('./utils/user')
 
 app.set('view engine', 'ejs');
@@ -52,7 +52,9 @@ io.on('connection', (socket) => {
     })
 
     socket.on('message', (msg) => {
-        // console.log('in connection: ' + msg)
+        console.log(msg)
+        msg = { ...msg, color: getUserNickColor(msg.id) }
+        console.log(msg)
         io.to(msg.room).sockets.emit('message', msg)
     })
 
