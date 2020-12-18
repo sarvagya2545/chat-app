@@ -57,15 +57,13 @@ io.on('connection', (socket) => {
     })
 
     socket.on('message', (msg) => {
-        // console.log(msg)
         msg = { ...msg, color: getUserNickColor(msg.id) }
-        // console.log(msg)
         io.to(msg.room).sockets.emit('message', msg)
     })
 
     socket.on('disconnect', () => {
         const removedUser = removeUser(socket.id);
-        io.to(removedUser.room).sockets.emit('leave', `${removedUser.nick} has left the chat`)
+        io.to(removedUser.room).sockets.emit('leave', removedUser)
         io.to(removedUser.room).sockets.emit('roomUsers', {
             room: removedUser.room,
             users: getUsersByRoom(removedUser.room)

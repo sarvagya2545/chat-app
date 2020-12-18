@@ -157,6 +157,12 @@ body {
     color: red;
 }
 
+@media(max-width: 1200px) {
+    #chat-details {
+        width: 30%;
+    }
+}
+
 /* Utility classes */
 .msg-red {
     color: red;
