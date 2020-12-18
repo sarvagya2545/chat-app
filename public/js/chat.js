@@ -10,11 +10,34 @@ const
 // User emits joinRoom to show that he entered the chat
 socket.emit('joinRoom', { nick, room })
 
+var typing = false;
+var timeout = undefined;
+
 // DOM elements
 const btnSend = document.getElementById('btn-send')
 const chatInput = document.getElementById('chat-input')
 const chatBox = document.getElementById('chat-box')
 const userList = document.getElementById('people-list')
+const typingBox = document.getElementById('typing-status')
+
+// Show "user is typing..." message to all other users in the chat.
+chatInput.addEventListener('keydown', e => {
+    console.log(e)
+    if(e.key != "Enter") {
+        typing = true
+        socket.emit('typing', { nick, room, typing: true })
+        clearTimeout(timeout)
+        timeout = setTimeout(typingTimeout, 500)
+    } else {
+        clearTimeout(timeout)
+        typingTimeout()
+    }
+})
+
+const typingTimeout = () => {
+    typing = false;
+    socket.emit('typing', { nick, room, typing })
+}
 
 // send chat message on click
 btnSend.addEventListener('click', e => {
@@ -40,6 +63,15 @@ socket.on('message', chatMsg => {
     // scrolls the chat message box to bottom once any message is recieved
     chatBox.scrollTop = chatBox.scrollHeight;
 });
+
+socket.on('display', data => {
+    if(data.typing === true) {
+        typingBox.innerText = `${data.nick} is typing...`
+        typingBox.style.display = 'block'
+    } else {
+        typingBox.style.display = 'none'
+    }
+})
 
 // updates users list inside the dom
 socket.on('roomUsers', data => {

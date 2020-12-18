@@ -57,7 +57,7 @@ body {
     font-size: 20px;
 }
 
-.typing-status {
+#typing-status {
     color: green;
     display: none;
 }

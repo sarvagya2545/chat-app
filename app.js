@@ -61,6 +61,10 @@ io.on('connection', (socket) => {
         io.to(msg.room).sockets.emit('message', msg)
     })
 
+    socket.on('typing', ({ nick, room, typing }) => {
+        io.to(room).emit('display', { nick, typing })
+    })
+
     socket.on('disconnect', () => {
         const removedUser = removeUser(socket.id);
         io.to(removedUser.room).sockets.emit('leave', removedUser)
