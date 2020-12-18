@@ -20,19 +20,40 @@ const chatBox = document.getElementById('chat-box')
 const userList = document.getElementById('people-list')
 const typingBox = document.getElementById('typing-status')
 
+// Keys which match
+const keys = [
+    "Space",
+    "Backspace",
+    "Minus",
+    "Equal",
+    "BracketLeft",
+    "BracketRight",
+    "Backslash",
+    "Semicolon",
+    "Quote",
+    "Comma",
+    "Period",
+    "Slash",
+    "Backquote"
+];
+
 // Show "user is typing..." message to all other users in the chat.
 chatInput.addEventListener('keydown', e => {
-    console.log(e)
-    if(e.key != "Enter") {
+    if(isTyping(e)) {
         typing = true
         socket.emit('typing', { nick, room, typing: true })
         clearTimeout(timeout)
         timeout = setTimeout(typingTimeout, 500)
-    } else {
+    } else if (e.key == "Enter") {
         clearTimeout(timeout)
         typingTimeout()
     }
 })
+
+// checks if the keys being pressed are considered to be the keys which are typing
+const isTyping = e => {
+    return (e.code.substring(0,5) === "Digit") || e.code.substring(0,3) === "Key" || keys.includes(e.code);
+}
 
 const typingTimeout = () => {
     typing = false;
