@@ -62,7 +62,8 @@ io.on('connection', (socket) => {
     })
 
     socket.on('typing', ({ nick, room, typing }) => {
-        io.to(room).emit('display', { nick, typing })
+        // io.to(room).emit('display', { nick, typing })
+        socket.broadcast.to(room).emit('display', { nick, typing })
     })
 
     socket.on('disconnect', () => {
