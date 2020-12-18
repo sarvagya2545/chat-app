@@ -12,6 +12,7 @@ socket.emit('joinRoom', { nick, room })
 const btnSend = document.getElementById('btn-send')
 const chatInput = document.getElementById('chat-input')
 const chatBox = document.getElementById('chat-box')
+const userList = document.getElementById('people-list')
 
 btnSend.addEventListener('click', e => {
     e.preventDefault()
@@ -36,13 +37,30 @@ socket.on('message', chatMsg => {
     chatBox.scrollTop = chatBox.scrollHeight;
 });
 
-socket.on('enter', alert => {
-    addAlert(alert)
+socket.on('enter', user => {
+    addAlert(`${user.nick} has entered the chat`)
+})
+
+socket.on('roomUsers', data => {
+    userList.innerHTML = ''
+    data.users.forEach(user => {
+        addUserToList(user);
+    })
 })
 
 socket.on('leave', alert => {
     addAlert(alert)
 })
+
+const addUserToList = (user) => {
+    const userNameHTML = `
+        <li class="person">
+            <img src="/images/avatar.jpg" alt="avatar">
+            ${ user.nick }
+        </li>
+    `
+    userList.innerHTML += userNameHTML;
+}
 
 const addAlert = (alertMsg) => {
     console.log(alertMsg);

@@ -8,27 +8,58 @@
     <title>Chat app</title>
 </head>
 <body>
-    <section id="chat-container">
-        <div id="chat-box">
-            <div class="alert">Sarvagya has left the chat</div>
-            <li class="chat-list-item">
-                <div class="chat-message others">
-                    <span class="msg-owner-name">Sarvagya</span>
-                    Custom Message
-                    <span class="chat-message-time">
-                        Sent: 12:00PM
-                    </span>
-                </div>
-            </li>
-        </div>
-        <form id="chat">
-            <input type="text" id="chat-input" placeholder="Type your message..."
-            autocomplete="off"/>
-            <button id="btn-send">
-                <img src="./public/images/send_img.svg" alt="SEND">   
-            </button>
-        </form>
-    </section>
-    <script src="/js/chat.js"></script>
+    <div class="container">
+        <section id="chat-details">
+            <div id="chat-info-heading">
+                <p>You are logged in as:</p>
+                <h4>Sarvagya</h4>     
+            </div>
+            <div class="chat-room-list">
+                <p>
+                    People in the room: 
+                </p>
+                <ul class="people-list">
+                    <li class="person">
+                        <img src="./public/images/avatar.jpg" alt="avatar">
+                        sarvu_don
+                    </li>
+                    <li class="person">
+                        <img src="./public/images/avatar.jpg" alt="avatar">
+                        john doe
+                    </li>
+                    <li class="person">
+                        <img src="./public/images/avatar.jpg" alt="avatar">
+                        jane doe
+                    </li>
+                </ul>
+            </div>
+        </section>
+        <section id="chat-container">
+            <div id="chat-heading">
+                <h1 class="room-name">Room</h1>
+                <p class="typing-status">typing status....</p>
+            </div>
+            <div id="chat-box">
+                <div class="alert">Sarvagya has left the chat</div>
+                <li class="chat-list-item">
+                    <div class="chat-message others">
+                        <span class="msg-owner-name">Sarvagya</span>
+                        Custom Message
+                        <span class="chat-message-time">
+                            Sent: 12:00PM
+                        </span>
+                    </div>
+                </li>
+            </div>
+            <form id="chat">
+                <input type="text" id="chat-input" placeholder="Type your message..."
+                autocomplete="off"/>
+                <button id="btn-send">
+                    <img src="./public/images/send_img.svg" alt="SEND">   
+                </button>
+            </form>
+        </section>
+    </div>
+    <script src="./public/js/chat.js"></script>
 </body>
 </html>

@@ -8,16 +8,41 @@
     <title>Chat app</title>
 </head>
 <body>
-    <section id="chat-container">
-        <div id="chat-box"></div>
-        <form id="chat">
-            <input type="text" id="chat-input" placeholder="Type your message..."
-            autocomplete="off"/>
-            <button id="btn-send">
-                <img src="/images/send_img.svg" alt="SEND">   
-            </button>
-        </form>
-    </section>
+    <div class="container">
+        <section id="chat-details">
+            <div id="chat-info-heading">
+                <p>You are logged in as:</p>
+                <h4><%= nick %> </h4>     
+            </div>
+            <div class="chat-room-list">
+                <p>
+                    People in the room: 
+                </p>
+                <ul id="people-list">
+                    <% users.forEach(user => { %>
+                        <li class="person">
+                            <img src="/images/avatar.jpg" alt="avatar">
+                            <%= user.nick %>
+                        </li>
+                    <% }) %>
+                </ul>
+            </div>
+        </section>
+        <section id="chat-container">
+            <div id="chat-heading">
+                <h1 class="room-name">Room: <%= code %> </h1>
+                <p class="typing-status">typing status....</p>
+            </div>
+            <div id="chat-box"></div>
+            <form id="chat">
+                <input type="text" id="chat-input" placeholder="Type your message..."
+                autocomplete="off"/>
+                <button id="btn-send">
+                    <img src="/images/send_img.svg" alt="SEND">   
+                </button>
+            </form>
+        </section>
+    </div>
     <script src="/js/chat.js"></script>
 </body>
 </html>

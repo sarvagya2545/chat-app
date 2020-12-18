@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -8,10 +10,69 @@ body {
     background-image: url('../images/whatsapp-web-background.png');
 }
 
+.container {
+    display: flex;
+}
+
+#chat-heading, #chat-info-heading, .chat-room-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1rem 2rem;
+    font-family: 'Montserrat', sans-serif;
+}
+
+#chat-info-heading {
+    height: fit-content;
+    background-color: #e8e8e8;
+}
+
+#chat-info-heading h4 {
+    font-size: 20px;
+}
+
+#chat-heading {
+    height: fit-content;
+    background-color: #e8e8e8;
+    border: 1px solid #c8c8c8;
+}
+
+#people-list {
+    list-style-type: none;
+    margin-top: 10px;
+}
+
+.person {
+    margin: 15px 0;
+    display: flex;
+    align-items: center;
+}
+
+.person img {
+    height: 30px;
+    margin-right: 5px;
+}
+
+.room-name {
+    font-size: 20px;
+}
+
+.typing-status {
+    color: green;
+    display: none;
+}
+
 #chat-container {
     height: 100vh;
     display: flex;
     flex-direction: column;
+    flex: 1;
+}
+
+#chat-details {
+    width: 20%;
+    height: 100vh;
+    background-color: #fff;
 }
 
 #chat-box {
