@@ -19,6 +19,23 @@ const chatInput = document.getElementById('chat-input')
 const chatBox = document.getElementById('chat-box')
 const userList = document.getElementById('people-list')
 const typingBox = document.getElementById('typing-status')
+const sidebarToggle = document.getElementById('toggler')
+const chatDetails = document.getElementById('chat-details')
+const chatDetailsBackground = document.getElementById('chat-details-bg')
+
+sidebarToggle.addEventListener('click', e => {
+    e.preventDefault();
+    console.log('called')
+    chatDetails.classList.add('visible')
+    chatDetailsBackground.classList.add('visible')
+})
+
+chatDetailsBackground.addEventListener('click', e => hideSideBar())
+
+const hideSideBar = () => {
+    chatDetails.classList.remove('visible')
+    chatDetailsBackground.classList.remove('visible')
+}
 
 // Keys which match
 const keys = [

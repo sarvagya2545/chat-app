@@ -9,6 +9,7 @@
 </head>
 <body>
     <div class="container">
+        <div id="chat-details-bg"></div>
         <section id="chat-details">
             <div id="chat-info-heading">
                 <p>You are logged in as:</p>
@@ -30,8 +31,16 @@
         </section>
         <section id="chat-container">
             <div id="chat-heading">
-                <h1 class="room-name">Room: <%= code %> </h1>
-                <p id="typing-status">typing status....</p>
+                <div id="sidebar-menu">
+                    <button id=toggler></button>
+                    <div class="hamburger">
+                        <div></div>
+                    </div>
+                </div>
+                <div class="info">
+                    <h1 class="room-name">Room: <%= code %> </h1>
+                    <p id="typing-status">typing status....</p>
+                </div>
             </div>
             <div id="chat-box"></div>
             <form id="chat">

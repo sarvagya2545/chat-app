@@ -6,7 +6,7 @@
 }
 
 body {
-    font-family: sans-serif;
+    font-family: 'Montserrat', sans-serif;
     background-image: url('../images/whatsapp-web-background.png');
 }
 
@@ -14,12 +14,11 @@ body {
     display: flex;
 }
 
-#chat-heading, #chat-info-heading, .chat-room-list {
+#chat-info-heading, .chat-room-list {
     display: flex;
     flex-direction: column;
     justify-content: center;
     padding: 1rem 2rem;
-    font-family: 'Montserrat', sans-serif;
 }
 
 #chat-info-heading {
@@ -32,6 +31,10 @@ body {
 }
 
 #chat-heading {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 1rem 2rem;
     height: fit-content;
     background-color: #e8e8e8;
     border: 1px solid #c8c8c8;
@@ -60,6 +63,62 @@ body {
 #typing-status {
     color: green;
     display: none;
+}
+
+#sidebar-menu {
+    width: 20px;
+    height: 20px;
+    padding: 10px;
+    margin-right: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+}
+
+.hamburger > div {
+    display: block;
+    height: 2px;
+    background-color: #000;
+    width: 100%;
+    position: relative;
+}
+
+.hamburger > div::before,
+.hamburger > div::after {
+    content: '';
+    width: 100%;
+    height: 2px;
+    position: absolute;
+    background-color: #000;
+    /* transition: all 0.2s; */
+}
+
+.hamburger > div::before {
+    top: -5px;
+}
+
+.hamburger > div::after {
+    top: 5px;
+}
+
+#toggler {
+    display: none;
+    /* opacity: 0; */
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+#sidebar-menu:hover > .hamburger > div::before {
+    top: -7px;
+}
+
+#sidebar-menu:hover > .hamburger > div::after {
+    top: 7px;
 }
 
 #chat-container {
@@ -157,9 +216,53 @@ body {
     color: red;
 }
 
+#chat-details-bg {
+    display: none;
+}
+
+@media(min-width: 700px) {
+    #sidebar-menu {
+        display: none;
+    }
+}
+
 @media(max-width: 1200px) {
     #chat-details {
         width: 30%;
+    }
+}
+
+@media(max-width: 700px) {
+    #toggler {
+        opacity: 0;
+        display: block;
+    }
+
+    #chat-details-bg {
+        position: fixed;
+        z-index: 2;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.3);
+        backdrop-filter: blur(3px);
+        display: none;
+    }
+
+    #chat-details {
+        width: 300px;
+        position: absolute;
+        z-index: 3;
+        display: none;
+    }
+
+    #chat-details.visible {
+        display: block;
+    }
+
+    #chat-details-bg.visible {
+        display: block;
     }
 }
 
