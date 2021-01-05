@@ -25,7 +25,6 @@ const chatDetailsBackground = document.getElementById('chat-details-bg')
 
 sidebarToggle.addEventListener('click', e => {
     e.preventDefault();
-    console.log('called')
     chatDetails.classList.add('visible')
     chatDetailsBackground.classList.add('visible')
 })
@@ -141,7 +140,6 @@ socket.on('leave', removedUser => {
 
 // inserts message to the dom
 const addAlert = (alertMsg) => {
-    console.log(alertMsg);
     var alert = document.createElement('div')
     alert.classList.add('alert')
     alert.innerHTML = alertMsg;
@@ -175,14 +173,12 @@ const addMessage = (chatMsg) => {
     li = document.createElement('li')
     li.className = 'chat-list-item'
     li.appendChild(msgBox)    
-    console.log(li)
     chatBox.appendChild(li)
 }
 
 // formatting date to the required format
 function formatAMPM(date) {
     date = new Date(date)
-    console.log(date)
     var hours = date.getHours();
     var minutes = date.getMinutes();
     var ampm = hours >= 12 ? 'pm' : 'am';

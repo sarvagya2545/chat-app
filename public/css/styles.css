@@ -254,11 +254,12 @@ body {
         width: 300px;
         position: absolute;
         z-index: 3;
-        display: none;
+        transition: transform .2s ease;
+        transform: translateX(-300px);
     }
 
     #chat-details.visible {
-        display: block;
+        transform: translateX(0);        
     }
 
     #chat-details-bg.visible {
