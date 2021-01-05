@@ -54,15 +54,16 @@ const keys = [
 ];
 
 // Show "user is typing..." message to all other users in the chat.
-chatInput.addEventListener('keydown', e => {
+chatInput.addEventListener('input', e => {
+    typing = true
+    socket.emit('typing', { nick, room, typing: true })
+    clearTimeout(timeout)
+    timeout = setTimeout(typingTimeout, 500)
+
     if(isTyping(e)) {
-        typing = true
-        socket.emit('typing', { nick, room, typing: true })
-        clearTimeout(timeout)
-        timeout = setTimeout(typingTimeout, 500)
+        
     } else if (e.key == "Enter") {
-        clearTimeout(timeout)
-        typingTimeout()
+        
     }
 })
 
@@ -91,6 +92,9 @@ btnSend.addEventListener('click', e => {
         }
         socket.emit('message', chatMsg)
         chatInput.value = ""
+
+        clearTimeout(timeout)
+        typingTimeout()
     }
 })
 
